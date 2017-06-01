@@ -28,7 +28,7 @@ public class FirstTest {
     }
 
     @Test
-    public void firstTest1() throws InterruptedException {
+    public void firstTest1() {
         driver.get("http://magento.brainacad.com/english/customer/account/create/");
         driver.findElement(By.cssSelector("#firstname")).sendKeys("July");
         driver.findElement(By.cssSelector("#lastname")).sendKeys("Trachova");
@@ -42,7 +42,7 @@ public class FirstTest {
     }
 
     @Test
-    public void firstTest2() throws InterruptedException {
+    public void firstTest2() {
         driver.get("http://magento.brainacad.com/english/customer/account/login/");
         driver.findElement(By.cssSelector("#email")).sendKeys("0.1926362042845149@gmail.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("631329");
