@@ -28,7 +28,20 @@ public class RozetkaTest {
         driver.findElement(By.cssSelector(".btn-link-i")).click();
         String actualPrice = driver.findElement(By.cssSelector("#js-product_670419-price")).getText();
         assertEquals(actualPrice, expectedPrice);
-        driver.findElement(By.cssSelector("#block_with_search > div > div:nth-child(7) > div > div > div > div > div.g-i-tile-i-title.clearfix > a")).click();
+        driver.findElement(By.cssSelector("#block_with_search > div > div:nth-child(6) > div > div > div > div > div.g-i-tile-i-title.clearfix > a")).click();
+        String actualPrice2 = driver.findElement(By.cssSelector("#price_label")).getText();
+        assertEquals(actualPrice2, expectedPrice);
+    }
+
+    @Test
+    public void findShirt() throws InterruptedException {
+        String expectedPrice = "2 099";
+        driver.get("http://rozetka.com.ua/ua/");
+        driver.findElement(By.cssSelector("[name =text]")).sendKeys("shirt");
+        driver.findElement(By.cssSelector(".btn-link-i")).click();
+        String actualPrice = driver.findElement(By.cssSelector("#js-product_9306798-price")).getText();
+        assertEquals(actualPrice, expectedPrice);
+        driver.findElement(By.cssSelector("#block_with_search > div > div:nth-child(2) > div > div > div > div > div.g-i-tile-i-title.clearfix > a")).click();
     }
 
 
@@ -42,5 +55,4 @@ public class RozetkaTest {
         assertEquals(actualPrice, expectedPrice);
         driver.findElement(By.cssSelector("#block_with_search > div > div:nth-child(4) > div > div > div > div > div.g-i-tile-i-title.clearfix > a")).click();
     }
-
 }
