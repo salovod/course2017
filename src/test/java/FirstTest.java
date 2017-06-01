@@ -14,7 +14,7 @@ public class FirstTest {
 
     @BeforeMethod
     public void before() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\X230\\Desktop\\dr\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
