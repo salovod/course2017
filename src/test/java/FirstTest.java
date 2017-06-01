@@ -49,6 +49,14 @@ public class FirstTest {
         driver.findElement(By.cssSelector("#send2")).click();
 
     }
+
+    @Test
+    public void firstTest3() throws InterruptedException {
+        driver.get("http://rozetka.com.ua");
+        driver.findElement(By.cssSelector("#")).sendKeys("TV");
+        Thread.sleep(5000);
+    }
+
     /*@AfterMethod
     public void after() {
         driver.close();
