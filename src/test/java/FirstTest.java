@@ -14,7 +14,7 @@ public class FirstTest {
 
     @BeforeMethod
     public void before() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
@@ -22,8 +22,8 @@ public class FirstTest {
 
     @Test
     public void firstTest() throws InterruptedException {
-
-        driver.findElement(By.cssSelector("#search")).sendKeys("PC games");
+        driver.get("https://rozetka.com.ua/search/?section_id=&section=&text=tv&rz-search-button=");
+        driver.findElement(By.cssSelector("#block_with_search > div > div:nth-child(6) > div > div > div > div > div.g-i-tile-i-title.clearfix > a")).click();
         Thread.sleep(5000);
     }
 
