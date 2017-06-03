@@ -13,6 +13,7 @@ public class HomePage {
     final String searchInputField = "#search";
     final String searchIcon = ".button.search-button";
     private final WebDriver driver;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -26,4 +27,11 @@ public class HomePage {
         driver.findElement(By.cssSelector(searchIcon)).click();
     }
 
+    public void clickOAccount() {
+        driver.findElement(By.cssSelector(account)).click();
+    }
+
+    public void clickLoginLinkTexst() {
+        driver.findElement(By.cssSelector(logIn)).click();
+    }
 }
