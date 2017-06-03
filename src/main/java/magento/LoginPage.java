@@ -11,3 +11,5 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
+
+    ;
