@@ -43,7 +43,7 @@ public class SearchTest extends DriverConfiguration {
     }
 
     @Test
-    public void searchvase() throws InterruptedException {
+    public void searchVase() throws InterruptedException {
         driver.findElement(By.cssSelector("#search")).clear();
         driver.findElement(By.cssSelector("#search")).sendKeys("vase");
         driver.findElement(By.cssSelector(".button.search-button")).click();
@@ -52,10 +52,29 @@ public class SearchTest extends DriverConfiguration {
     }
 
     @Test
-    public void searchvase1() throws InterruptedException {
+    public void searchVasePOP() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.fillInSearchInputField("vase");
         homePage.clickOnSearchIcon();
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        Assert.assertTrue(searchResultPage.searchResultAmount() == true);
+    }
+
+    @Test
+    public void searchPants() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.fillInSearchInputField("pants");
+        homePage.clickOnSearchIcon();
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        Assert.assertTrue(searchResultPage.searchResultAmount() == true);
+    }
+
+
+    @Test
+    public void searchMediaPlayer() throws InterruptedException {
+        String searchInputField = ("#search");
+        driver.findElement(By.cssSelector(searchInputField)).sendKeys("Media player");
+        driver.findElement(By.cssSelector(".button.search-button")).click();
         SearchResultPage searchResultPage = new SearchResultPage(driver);
         Assert.assertTrue(searchResultPage.searchResultAmount() == true);
     }
