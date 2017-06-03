@@ -2,7 +2,6 @@ package magento;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -11,7 +10,6 @@ import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
 
 import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
 
 import static jdk.nashorn.internal.objects.NativeMath.random;
 
@@ -32,11 +30,11 @@ public class SingUpAndLoginTest extends DriverConfiguration {
     @Test
     public void signUp() throws InterruptedException {
         SignUpPage signUpPage = new SignUpPage(driver);
-        SignUpPage.fillInFirstNameField("Tester");
-        SignUpPage.fillInLastNameField("Tester");
-        SignUpPage.fillInEmailField(email);
-        SignUpPage.fillInPasswordField(password);
-        SignUpPage.fillInConfirmationField(password);
+        signUpPage.fillInFirstNameField("Tester");
+        signUpPage.fillInLastNameField("Tester");
+        signUpPage.fillInEmailField(email);
+        signUpPage.fillInPasswordField(password);
+        signUpPage.fillInConfirmationField(password);
         driver.findElement(By.cssSelector("div.buttons-set > button")).click();
         System.out.println(email);
         Assert.assertEquals("my dashboard", driver.findElement(By.cssSelector(".page-title")).getText().toLowerCase());

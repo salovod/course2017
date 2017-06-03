@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
  * Created by User on 03.06.2017.
  */
 public class RestorePassword {
-    final String emailRestoreField = ".input-text required-entry validate-email";
+    final String emailRestoreField = ".input-text.required-entry.validate-email";
     final String submitButton = "[title='Submit']";
     final String basicURL = "http://magento.brainacad.com/";
     private final WebDriver driver;
