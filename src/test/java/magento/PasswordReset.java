@@ -1,6 +1,5 @@
 package magento;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
@@ -26,7 +25,6 @@ public class PasswordReset extends DriverConfiguration {
         RestorePassword restorePassword = new RestorePassword(driver);
         restorePassword.fillEmail("testqa2017@bigmir.net");
         restorePassword.clickOnSubmit();
-        Assert.assertEquals(, );
     }
 
 }
