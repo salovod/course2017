@@ -13,8 +13,8 @@ public class RozetkaTest extends DriverConfiguration {
 
     final String basicURL = "http://rozetka.com.ua";
 
-    @BeforeMethod
-    public void before() {
+        @BeforeMethod
+        public void before() {
         driver.get(basicURL);
     }
     @Test
