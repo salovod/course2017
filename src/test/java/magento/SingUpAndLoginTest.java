@@ -1,8 +1,17 @@
 package magento;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
+
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 import static jdk.nashorn.internal.objects.NativeMath.random;
 
@@ -11,41 +20,76 @@ import static jdk.nashorn.internal.objects.NativeMath.random;
  */
 public class SingUpAndLoginTest extends DriverConfiguration {
 
+    final String basicURL = "http://magento.brainacad.com/";
+    final String email = random(1) + "@gmail.com";
+    String password = "password123";
 
-    @Test
-    public void firstTest() throws InterruptedException {
-        driver.get("https://rozetka.com.ua/search/?section_id=&section=&text=tv&rz-search-button=");
-        driver.findElement(By.cssSelector("#block_with_search > div > div:nth-child(6) > div > div > div > div > div.g-i-tile-i-title.clearfix > a")).click();
-        Thread.sleep(5000);
+    @BeforeMethod
+    public void beforeMethod() {
+        driver.get(basicURL);
     }
 
     @Test
-    public void firstTest1() {
-        driver.get("http://magento.brainacad.com/english/customer/account/create/");
-        driver.findElement(By.cssSelector("#firstname")).sendKeys("July");
-        driver.findElement(By.cssSelector("#lastname")).sendKeys("Trachova");
-        final String email = random(10) + "@gmail.com";
+    public void signUp() throws InterruptedException {
+        driver.findElement(By.cssSelector("#firstname")).sendKeys("Tester");
+        driver.findElement(By.cssSelector("#lastname")).sendKeys("Tester");
         driver.findElement(By.cssSelector("#email_address")).sendKeys(email);
-        System.out.println(email);
-        driver.findElement(By.cssSelector("#password")).sendKeys("631329");
-        driver.findElement(By.cssSelector("#confirmation")).sendKeys("631329");
+        driver.findElement(By.cssSelector("#password")).sendKeys(password);
+        driver.findElement(By.cssSelector("#confirmation")).sendKeys(password);
         driver.findElement(By.cssSelector("div.buttons-set > button")).click();
-
+        System.out.println(email);
+        Assert.assertEquals("my dashboard", driver.findElement(By.cssSelector(".page-title")).getText().toLowerCase());
     }
 
     @Test
-    public void firstTest2() {
-        driver.get("http://magento.brainacad.com/english/customer/account/login/");
-        driver.findElement(By.cssSelector("#email")).sendKeys("0.1926362042845149@gmail.com");
-        driver.findElement(By.cssSelector("#pass")).sendKeys("631329");
-        driver.findElement(By.cssSelector("#send2")).click();
-
+    public void signUpEmptyFields() throws InterruptedException {
+        driver.findElement(By.cssSelector("div.buttons-set > button")).click();
+        driver.findElement(By.cssSelector(".input-text.validation-failed")).getCssValue("border-color").contains("red");
+        driver.findElements(By.xpath("//div[@class=\"validation-advice\"]"));
+        java.util.List<WebElement> validation = driver.findElements(By.xpath("//div[@class=\"validation-advice\"]"));
+        Iterator<WebElement> iter = validation.iterator();
+        while (iter.hasNext()) {
+            WebElement item = iter.next();
+            Assert.assertEquals("This is a required field.", item.getText());
+            Assert.assertEquals("rgba(255, 0, 0, 1)", item.getCssValue("color"));
+            ;
+            System.out.println(item.getAttribute("id"));
+        }
     }
 
     @Test
-    public void firstTest3() throws InterruptedException {
-        driver.get("http://rozetka.com.ua");
-        driver.findElement(By.cssSelector("#")).sendKeys("TV");
-        Thread.sleep(5000);
+    public void signUpExistingEmail() throws InterruptedException {
+        driver.findElement(By.cssSelector("#firstname")).sendKeys("TesterI");
+        driver.findElement(By.cssSelector("#lastname")).sendKeys("TesterI");
+        driver.findElement(By.cssSelector("#email_address")).sendKeys("testermakv@gmail.com");
+        driver.findElement(By.cssSelector("#password")).sendKeys("testpass");
+        driver.findElement(By.cssSelector("#confirmation")).sendKeys("testpass");
+        driver.findElement(By.cssSelector("div.buttons-set > button")).click();
+        Assert.assertEquals("There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.", driver.findElement(By.cssSelector(".error-msg")).getText());
+        Assert.assertEquals("click here", driver.findElement(By.cssSelector("a[href=\"http://magento.brainacad.com/english/customer/account/forgotpassword/\"]")).getText());
+    }
+
+    @Test
+    public void signUpPasswordConfirmationWrong() throws InterruptedException {
+        driver.findElement(By.cssSelector("#firstname")).sendKeys("TesterI");
+        driver.findElement(By.cssSelector("#lastname")).sendKeys("TesterI");
+        driver.findElement(By.cssSelector("#email_address")).sendKeys(" testermakvI@gmail.com");
+        driver.findElement(By.cssSelector("#password")).sendKeys("testpass");
+        driver.findElement(By.cssSelector("#confirmation")).sendKeys("testpassI");
+        driver.findElement(By.cssSelector("div.buttons-set > button")).click();
+        driver.findElement(By.cssSelector("#confirmation")).getCssValue("border-color").contains("red");
+        Assert.assertEquals("rgba(255, 0, 0, 1)", driver.findElement(By.cssSelector("#advice-validate-cpassword-confirmation")).getCssValue("color"));
+        Assert.assertTrue(driver.findElement(By.cssSelector("#advice-validate-cpassword-confirmation")).getText().contains("Please make sure your passwords match."));
+    }
+
+    @AfterMethod
+    public void Method() {
+        driver.get("http://magento.brainacad.com/english/customer/account/logout/");
+    }
+
+    @AfterClass
+    public void after() {
+        driver.close();
+
     }
 }
