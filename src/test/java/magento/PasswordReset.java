@@ -19,13 +19,14 @@ public class PasswordReset extends DriverConfiguration {
     @Test
     public void passwordReset() {
         HomePage homePage = new HomePage(driver);
-        HomePage.clickOnMenu();
-        HomePage.clickOnLinkLogin();
+        homePage.clickOAccount();
+        homePage.clickLoginLinkTexst();
         LoginPage loginPage = new LoginPage(driver);
-        LoginPage.clickOnLink();
-        ForgotPawwsordPage loginPage = new LoginPage(driver);
-        ForgotPawwsord.fillInSearchInputField("testermakvI@gmail.com");
-        ForgotPawwsord.clickOnSubmit();
-        Assert.
+        loginPage.clickOnforgotPassword();
+        RestorePassword restorePassword = new RestorePassword(driver);
+        restorePassword.fillEmail("testqa2017@bigmir.net");
+        restorePassword.clickOnSubmit();
+        Assert.assertEquals(, );
     }
+
 }

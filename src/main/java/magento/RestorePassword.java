@@ -22,11 +22,11 @@ public class RestorePassword {
         driver.get(basicURL);
     }
 
-    public void fillEmail(String email) throws InterruptedException {
+    public void fillEmail(String email) {
         driver.findElement(By.cssSelector(emailRestoreField)).sendKeys(email);
     }
 
-    public void clickOnSubmit() throws InterruptedException {
+    public void clickOnSubmit() {
         driver.findElement(By.cssSelector(submitButton)).click();
     }
 
