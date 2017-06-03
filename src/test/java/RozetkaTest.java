@@ -1,5 +1,4 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
@@ -16,9 +15,6 @@ public class RozetkaTest extends DriverConfiguration {
 
     @BeforeMethod
     public void before() {
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.get(basicURL);
     }
     @Test
