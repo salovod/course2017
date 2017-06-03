@@ -59,4 +59,13 @@ public class SearchTest extends DriverConfiguration {
         SearchResultPage searchResultPage = new SearchResultPage(driver);
         Assert.assertTrue(searchResultPage.searchResultAmount() == true);
     }
+
+    @Test
+    public void searchMediaPlayer() throws InterruptedException {
+        String searchInputField = ("#search");
+        driver.findElement(By.cssSelector(searchInputField)).sendKeys("Media player");
+        driver.findElement(By.cssSelector(".button.search-button")).click();
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        Assert.assertTrue(searchResultPage.searchResultAmount() == true);
+    }
 }
