@@ -11,7 +11,8 @@ import org.testng.annotations.BeforeMethod;
 public class DriverConfiguration {
 
 
-    public WebDriver driver;
+    protected static WebDriver driver;
+
 
     @BeforeMethod
     public void before() {
