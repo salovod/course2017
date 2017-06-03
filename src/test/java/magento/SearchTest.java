@@ -1,20 +1,10 @@
 package magento;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-
 import preparation.DriverConfiguration;
-
-import java.util.concurrent.TimeUnit;
-
-import static jdk.nashorn.internal.objects.NativeMath.random;
 
 /**
  * Created by Sacred on 03.06.2017.
@@ -30,8 +20,9 @@ public class SearchTest extends DriverConfiguration {
 
     @Test
     public void searchBlouse() throws InterruptedException {
-        driver.findElement(By.cssSelector("#search")).sendKeys("blouse");
-        driver.findElement(By.cssSelector(".button.search-button")).click();
+        HomePage homePage = new HomePage(driver);
+        homePage.fillInSearchInputField("blouse");
+        homePage.clickOnSearchIcon();
         Assert.assertTrue(driver.findElement(By.cssSelector("div.count-container")).isDisplayed());
     }
 
