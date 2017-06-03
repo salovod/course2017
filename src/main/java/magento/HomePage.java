@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
  * Created by Sacred on 03.06.2017.
  */
 public class HomePage {
+    final String account = ".skip-link.skip-account";
+    final String logIn = "[title='Log In']";
 
     final String searchInputField = "#search";
     final String searchIcon = ".button.search-button";
