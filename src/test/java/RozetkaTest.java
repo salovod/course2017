@@ -13,10 +13,11 @@ public class RozetkaTest extends DriverConfiguration {
 
     final String basicURL = "http://rozetka.com.ua";
 
-        @BeforeMethod
-        public void before() {
+    @BeforeMethod
+    public void before() {
         driver.get(basicURL);
     }
+
     @Test
     public void firstTest3() {
         String expectedPrice = "399 999";
