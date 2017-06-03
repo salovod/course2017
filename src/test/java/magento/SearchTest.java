@@ -61,6 +61,16 @@ public class SearchTest extends DriverConfiguration {
     }
 
     @Test
+    public void searchPants() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.fillInSearchInputField("pants");
+        homePage.clickOnSearchIcon();
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        Assert.assertTrue(searchResultPage.searchResultAmount() == true);
+    }
+
+
+    @Test
     public void searchMediaPlayer() throws InterruptedException {
         String searchInputField = ("#search");
         driver.findElement(By.cssSelector(searchInputField)).sendKeys("Media player");
