@@ -20,7 +20,7 @@ import static jdk.nashorn.internal.objects.NativeMath.random;
  */
 public class SingUpAndLoginTest extends DriverConfiguration {
 
-    final String basicURL = "http://magento.brainacad.com/";
+    final String basicURL = "http://magento.brainacad.com/english/customer/account/create/";
     final String email = random(1) + "@gmail.com";
     String password = "password123";
 
@@ -31,11 +31,12 @@ public class SingUpAndLoginTest extends DriverConfiguration {
 
     @Test
     public void signUp() throws InterruptedException {
-        driver.findElement(By.cssSelector("#firstname")).sendKeys("Tester");
-        driver.findElement(By.cssSelector("#lastname")).sendKeys("Tester");
-        driver.findElement(By.cssSelector("#email_address")).sendKeys(email);
-        driver.findElement(By.cssSelector("#password")).sendKeys(password);
-        driver.findElement(By.cssSelector("#confirmation")).sendKeys(password);
+        SignUpPage signUpPage = new SignUpPage(driver);
+        SignUpPage.fillInFirstNameField("Tester");
+        SignUpPage.fillInLastNameField("Tester");
+        SignUpPage.fillInEmailField(email);
+        SignUpPage.fillInPasswordField(password);
+        SignUpPage.fillInConfirmationField(password);
         driver.findElement(By.cssSelector("div.buttons-set > button")).click();
         System.out.println(email);
         Assert.assertEquals("my dashboard", driver.findElement(By.cssSelector(".page-title")).getText().toLowerCase());
