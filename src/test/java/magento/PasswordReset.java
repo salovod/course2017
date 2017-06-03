@@ -1,6 +1,5 @@
 package magento;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
@@ -18,6 +17,6 @@ public class PasswordReset extends DriverConfiguration {
 
     @Test
     public void passwordReset() throws InterruptedException {
-
+        //
     }
 }
