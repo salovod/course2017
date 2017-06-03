@@ -23,7 +23,8 @@ public class SearchTest extends DriverConfiguration {
         HomePage homePage = new HomePage(driver);
         homePage.fillInSearchInputField("blouse");
         homePage.clickOnSearchIcon();
-        Assert.assertTrue(driver.findElement(By.cssSelector("div.count-container")).isDisplayed());
+        SearchResultPage searchResultPage = new SearchResultPage(driver);
+        Assert.assertTrue(searchResultPage.searchResultAmount() == true);
     }
 
     @Test
