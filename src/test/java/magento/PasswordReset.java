@@ -1,5 +1,6 @@
 package magento;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
@@ -16,7 +17,15 @@ public class PasswordReset extends DriverConfiguration {
     }
 
     @Test
-    public void passwordReset() throws InterruptedException {
-        //
+    public void passwordReset() {
+        HomePage homePage = new HomePage(driver);
+        HomePage.clickOnMenu();
+        HomePage.clickOnLinkLogin();
+        LoginPage loginPage = new LoginPage(driver);
+        LoginPage.clickOnLink();
+        ForgotPawwsordPage loginPage = new LoginPage(driver);
+        ForgotPawwsord.fillInSearchInputField("testermakvI@gmail.com");
+        ForgotPawwsord.clickOnSubmit();
+        Assert.
     }
 }
