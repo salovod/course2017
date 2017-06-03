@@ -1,24 +1,13 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import preparation.DriverConfiguration;
 
 import static org.testng.Assert.assertEquals;
 
 /**
  * Created by X230 on 01.06.2017.
  */
-public class RozetkaTest {
-
-    WebDriver driver;
-
-    @BeforeMethod
-    public void before() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
+public class RozetkaTest extends DriverConfiguration {
 
     @Test
     public void firstTest3() {
