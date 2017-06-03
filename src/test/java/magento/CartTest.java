@@ -1,7 +1,6 @@
 package magento;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,14 +12,11 @@ public class CartTest {
 
     @BeforeMethod
     public void before() {
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver.get("http://magento.brainacad.com/");
     }
 
     @Test
     public void firstTest3() {
-        driver.get("http://magento.brainacad.com/");
 
     }
 
