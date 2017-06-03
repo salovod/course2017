@@ -1,23 +1,15 @@
+package magento;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import preparation.DriverConfiguration;
 
 import static jdk.nashorn.internal.objects.NativeMath.random;
 
 /**
  * Created by X230 on 27.05.2017.
  */
-public class FirstTest {
-    WebDriver driver;
-
-    @BeforeMethod
-    public void before() {
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
+public class SingUpAndLoginTest extends DriverConfiguration {
 
 
     @Test
@@ -56,9 +48,4 @@ public class FirstTest {
         driver.findElement(By.cssSelector("#")).sendKeys("TV");
         Thread.sleep(5000);
     }
-
-    /*@AfterMethod
-    public void after() {
-        driver.close();
-    }*/
 }
