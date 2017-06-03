@@ -1,6 +1,9 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
+import rozetka.HomePage;
 
 import static org.testng.Assert.assertEquals;
 
@@ -9,11 +12,20 @@ import static org.testng.Assert.assertEquals;
  */
 public class RozetkaTest extends DriverConfiguration {
 
+    final String basicURL = "http://rozetka.com.ua";
+
+    @BeforeMethod
+    public void before() {
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get(basicURL);
+    }
     @Test
     public void firstTest3() {
         String expectedPrice = "399 999";
-        driver.get("http://rozetka.com.ua");
-        driver.findElement(By.cssSelector("[name='text']")).sendKeys("TV");
+        HomePage homePage = new HomePage(driver);
+        homePage.fillInSearchInputField();
         driver.findElement(By.cssSelector(".btn-link-i")).click();
         String actualPrice = driver.findElement(By.cssSelector("#js-product_670419-price")).getText();
         assertEquals(actualPrice, expectedPrice);
@@ -25,7 +37,6 @@ public class RozetkaTest extends DriverConfiguration {
     @Test
     public void findShirt() throws InterruptedException {
         String expectedPrice = "2 099";
-        driver.get("http://rozetka.com.ua/ua/");
         driver.findElement(By.cssSelector("[name =text]")).sendKeys("shirt");
         driver.findElement(By.cssSelector(".btn-link-i")).click();
         String actualPrice = driver.findElement(By.cssSelector("#js-product_9306798-price")).getText();
@@ -37,7 +48,6 @@ public class RozetkaTest extends DriverConfiguration {
     @Test
     public void checkMaskprice() {
         String expectedPrice = "11 015";
-        driver.get("http://rozetka.com.ua");
         driver.findElement(By.cssSelector("[name='text']")).sendKeys("Mask");
         driver.findElement(By.cssSelector(".btn-link-i")).click();
         String actualPrice = driver.findElement(By.cssSelector("#js-product_14429450-price")).getText();
