@@ -16,6 +16,7 @@ public class HomePage {
     }
 
     public void fillInSearchInputField(String value) {
+        driver.findElement(By.cssSelector(searchInputField)).clear();
         driver.findElement(By.cssSelector(searchInputField)).sendKeys(value);
     }
 
