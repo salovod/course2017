@@ -8,12 +8,14 @@ import org.openqa.selenium.WebDriver;
  */
 public class HomePage {
 
+    final String searchInputField = "[name='text']";
     private final WebDriver driver;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
     public void fillInSearchInputField() {
-        driver.findElement(By.cssSelector("[name='text']")).sendKeys("TV");
+        driver.findElement(By.cssSelector(searchInputField)).sendKeys("TV");
     }
 }
