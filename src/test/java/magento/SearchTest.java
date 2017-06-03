@@ -52,4 +52,21 @@ public class SearchTest extends DriverConfiguration {
         driver.findElement(By.cssSelector(".page-title")).getText().contains("SEARCH RESULTS FOR");
         Assert.assertTrue(driver.findElement(By.cssSelector(".note-msg")).getText().contains("Your search returns no results."));
     }
+
+    @Test
+    public void searchvase() throws InterruptedException {
+        driver.findElement(By.cssSelector("#search")).clear();
+        driver.findElement(By.cssSelector("#search")).sendKeys("vase");
+        driver.findElement(By.cssSelector(".button.search-button")).click();
+        driver.findElement(By.cssSelector(".page-title")).getText().contains("SEARCH RESULTS FOR");
+        Assert.assertTrue(driver.findElement(By.cssSelector("div.count-container")).isDisplayed());
+    }
+
+    @Test
+    public void searchvase1() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.fillInSearchInputField("vase");
+        homePage.clickOnSearchIcon();
+        Assert.assertTrue(driver.findElement(By.cssSelector("div.count-container")).isDisplayed());
+    }
 }
