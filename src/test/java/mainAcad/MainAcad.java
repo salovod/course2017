@@ -23,6 +23,9 @@ public class MainAcad extends DriverConfiguration {
         driver.findElement(By.cssSelector("#post-9018")).click();
 
 
+
     }
+
+
 
 }
