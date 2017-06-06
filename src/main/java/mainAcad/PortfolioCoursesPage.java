@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class PortfolioCoursesPage {
     final String course = "#post-";
+    final String getTeachText = "#forWho > div.container > div > div:nth-child(1) > p";
 
     private final WebDriver driver;
 
@@ -18,4 +19,10 @@ public class PortfolioCoursesPage {
     public void clickOnCourses(int courseNumber) {
         driver.findElement(By.cssSelector(course + courseNumber)).click();
     }
+
+
+    public String getTeachText() {
+        return driver.findElement(By.cssSelector(getTeachText)).getText();
+    }
+
 }

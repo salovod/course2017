@@ -51,6 +51,10 @@ public class MainAcad extends DriverConfiguration {
 
     @Test
     public void basic() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(9450);
         String expectedText = "Колеблешься, ту ли специальность выбрал? Уверен в правильности выбора, но хочешь усилить свои позиции техническими знаниями?\nПредлагаем старт в программировании – с нуля, без отрыва от занятий, без лишней траты времени, без ненужной академичности.";
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         driver.findElement(By.cssSelector("#post-9450")).click();
