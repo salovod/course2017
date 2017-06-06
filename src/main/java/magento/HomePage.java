@@ -27,7 +27,7 @@ public class HomePage {
         driver.findElement(By.cssSelector(searchIcon)).click();
     }
 
-    public void clickOAccount() {
+    public void clickOnAccount() {
         driver.findElement(By.cssSelector(account)).click();
     }
 
