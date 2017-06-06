@@ -15,7 +15,7 @@ public class PortfolioCoursesPage {
         this.driver = driver;
     }
 
-    public void clickOnCourses(int a) {
-        driver.findElement(By.cssSelector(course + a)).click();
+    public void clickOnCourses(int courseNumber) {
+        driver.findElement(By.cssSelector(course + courseNumber)).click();
     }
 }
