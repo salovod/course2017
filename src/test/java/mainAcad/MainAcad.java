@@ -64,7 +64,7 @@ public class MainAcad extends DriverConfiguration {
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
         portfolioCoursesPage.clickOnCourses(9450);
         String expectedText = "Колеблешься, ту ли специальность выбрал? Уверен в правильности выбора, но хочешь усилить свои позиции техническими знаниями?\nПредлагаем старт в программировании – с нуля, без отрыва от занятий, без лишней траты времени, без ненужной академичности.";
-        String actualText = driver.findElement(By.cssSelector("#forWho > div.container > div > div:nth-child(1) > p")).getText();
+        String actualText = portfolioCoursesPage.getTeachText();
         assertEquals(actualText, expectedText);
 
 
