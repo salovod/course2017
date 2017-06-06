@@ -1,6 +1,7 @@
 package mainAcad;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
@@ -14,6 +15,7 @@ public class MainAcad extends DriverConfiguration {
 
     @BeforeMethod
     public void beforeMethod() {
+        driver.manage().window().setSize(new Dimension(800, 600));
         driver.get(basicURL);
     }
 
