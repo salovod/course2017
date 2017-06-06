@@ -25,7 +25,7 @@ public class MainAcad extends DriverConfiguration {
     public void frontEnd() throws InterruptedException {
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
-        driver.findElement(By.cssSelector(portfolioCoursesPage.clickOnCourses("9018"))).click();
+        portfolioCoursesPage.clickOnCourses(9018);
         Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew")).isDisplayed());
         Assert.assertEquals("5 месяцев", driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div >p.sub")).getText());
         Assert.assertEquals("144 часа", driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(2) > div >p.sub")).getText());
