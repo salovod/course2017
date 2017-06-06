@@ -33,6 +33,7 @@ public class MainAcad extends DriverConfiguration {
         driver.findElement(By.cssSelector("#post-7658")).click();
         Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div > p:nth-child(2)")).isDisplayed());
     }
+
     @Test
     public void basic() throws InterruptedException {
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
