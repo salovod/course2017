@@ -18,7 +18,7 @@ public class PasswordReset extends DriverConfiguration {
     @Test
     public void passwordReset() {
         HomePage homePage = new HomePage(driver);
-        homePage.clickOAccount();
+        homePage.clickOnAccount();
         homePage.clickLoginLinkTexst();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.clickOnforgotPassword();

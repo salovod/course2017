@@ -2,6 +2,7 @@ package mainAcad;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.openqa.selenium.Dimension;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
@@ -15,7 +16,7 @@ public class MainAcad extends DriverConfiguration {
 
     @BeforeMethod
     public void beforeMethod() {
-        //river.manage().window().setSize(new Dimension(800, 600));
+//        driver.manage().window().setSize(new Dimension(800, 600));
         driver.get(basicURL);
     }
 
@@ -23,7 +24,20 @@ public class MainAcad extends DriverConfiguration {
     public void frontEnd() throws InterruptedException {
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         driver.findElement(By.cssSelector("#post-9018")).click();
-        Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew")).isDisplayed());
-    }
 
+
+    }
+    @Test
+    public void qA() throws InterruptedException {
+        driver.findElement(By.cssSelector("#menu-item-10452")).click();
+        driver.findElement(By.cssSelector("#post-7658")).click();
+        Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div > p:nth-child(2)")).isDisplayed());
+    }
+    @Test
+    public void basic() throws InterruptedException {
+        driver.findElement(By.cssSelector("#menu-item-10452")).click();
+        driver.findElement(By.cssSelector("#post-9450")).click();
+
+
+    }
 }
