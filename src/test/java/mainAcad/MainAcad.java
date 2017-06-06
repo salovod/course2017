@@ -37,6 +37,15 @@ public class MainAcad extends DriverConfiguration {
     }
 
     @Test
+    public void php() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        driver.findElement(By.cssSelector("#menu-item-10452")).click();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(9856);
+    }
+
+    @Test
     public void Python() throws InterruptedException {
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         driver.findElement(By.cssSelector("#post-9840")).click();
