@@ -1,6 +1,7 @@
 package mainAcad;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
@@ -24,12 +25,19 @@ public class MainAcad extends DriverConfiguration {
     public void frontEnd() throws InterruptedException {
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         driver.findElement(By.cssSelector("#post-9018")).click();
+        Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew")).isDisplayed());
 
 
     }
+    @Test
+    public void qA() throws InterruptedException {
+        driver.findElement(By.cssSelector("#menu-item-10452")).click();
+        driver.findElement(By.cssSelector("#post-7658")).click();
+        Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div > p:nth-child(2)")).isDisplayed());
+    }
 
     @Test
-    public void Basic() throws InterruptedException {
+    public void basic() throws InterruptedException {
         String expectedText = "Колеблешься, ту ли специальность выбрал? Уверен в правильности выбора, но хочешь усилить свои позиции техническими знаниями?\nПредлагаем старт в программировании – с нуля, без отрыва от занятий, без лишней траты времени, без ненужной академичности.";
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         driver.findElement(By.cssSelector("#post-9450")).click();
