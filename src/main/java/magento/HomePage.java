@@ -35,3 +35,5 @@ public class HomePage {
         driver.findElement(By.cssSelector(logIn)).click();
     }
 }
+
+

@@ -35,7 +35,7 @@ public class SingUpAndLoginTest extends DriverConfiguration {
         signUpPage.fillInEmailField(email);
         signUpPage.fillInPasswordField(password);
         signUpPage.fillInConfirmationField(password);
-        driver.findElement(By.cssSelector("div.buttons-set > button")).click();
+        signUpPage.clickOnSignUpButton();
         System.out.println(email);
         Assert.assertEquals("my dashboard", driver.findElement(By.cssSelector(".page-title")).getText().toLowerCase());
     }

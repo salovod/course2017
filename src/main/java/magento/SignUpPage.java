@@ -8,17 +8,17 @@ import org.openqa.selenium.WebDriver;
  */
 public class SignUpPage {
 
-    private final WebDriver driver;
-    public SignUpPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
     final String firstName = "#firstname";
     final String lastName = "#lastname";
     final String emailAddress = "#email_address";
     final String password = "#password";
     final String confirmation = "#confirmation";
+    final String signUpBtn = "div.buttons-set > button";
+    private final WebDriver driver;
 
+    public SignUpPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public void fillInFirstNameField(String value) {
         driver.findElement(By.cssSelector(firstName)).clear();
@@ -45,4 +45,7 @@ public class SignUpPage {
         driver.findElement(By.cssSelector(confirmation)).sendKeys(value);
     }
 
+    public void clickOnSignUpButton() {
+        driver.findElement(By.cssSelector(signUpBtn)).click();
+    }
 }
