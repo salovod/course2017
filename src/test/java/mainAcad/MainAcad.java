@@ -25,4 +25,11 @@ public class MainAcad extends DriverConfiguration {
 
     }
 
+    @Test
+    public void Basic() throws InterruptedException {
+        driver.findElement(By.cssSelector("#menu-item-10452")).click();
+        driver.findElement(By.cssSelector("#post-9450")).click();
+
+
+    }
 }
