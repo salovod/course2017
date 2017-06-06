@@ -24,7 +24,7 @@ public class MainAcad extends DriverConfiguration {
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         driver.findElement(By.cssSelector("#post-9018")).click();
         Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew")).isDisplayed());
-        Assert.assertEquals("5 меcяцев", driver.findElement(By.cssSelector("#shortReiew > div:nth-child(1) > div > div > div >p.sub")).getText());
+        Assert.assertEquals("5 месяцев", driver.findElement(By.cssSelector("#shortReiew > div:nth-child(1) > div > div > div >p.sub")).getText());
 
 
     }
