@@ -1,4 +1,4 @@
-package MainAcad;
+package mainAcad;
 
 /**
  * Created by X230 on 06.06.2017.
