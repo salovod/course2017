@@ -17,6 +17,5 @@ public class HomePage {
     public void courses() {
         driver.findElement(By.cssSelector(courses)).click();
     }
-}
 
 }
