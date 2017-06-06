@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class HomePage {
     final String courses = "#menu-item-10452";
     final String basic = "#post-9450";
-    final String getTeachText = "#forWho > div.container > div > div:nth-child(1) > p"
+    final String getTeachText = "#forWho > div.container > div > div:nth-child(1) > p";
     private final WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -25,5 +25,5 @@ public class HomePage {
     }
 
     public String getTeachText() {
-        return driver.findElement(By.cssSelector("#forWho > div.container > div > div:nth-child(1) > p")).getText();
+        return driver.findElement(By.cssSelector(getTeachText)).getText();
 }
