@@ -23,6 +23,8 @@ public class MainAcad extends DriverConfiguration {
 
     @Test
     public void frontEnd() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
         portfolioCoursesPage.clickOnCourses(9018);
