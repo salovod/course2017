@@ -43,8 +43,10 @@ public class MainAcad extends DriverConfiguration {
 
     @Test
     public void qA() throws InterruptedException {
-        driver.findElement(By.cssSelector("#menu-item-10452")).click();
-        driver.findElement(By.cssSelector("#post-7658")).click();
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(7658);
         Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div > p:nth-child(2)")).isDisplayed());
     }
 
