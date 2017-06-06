@@ -25,4 +25,8 @@ public class PortfolioCoursesPage {
         return driver.findElement(By.cssSelector(getTeachText)).getText();
     }
 
+    public String getQACourseText() {
+        return driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div > p:nth-child(2)")).getText();
+    }
+
 }

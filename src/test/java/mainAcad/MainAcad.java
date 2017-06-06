@@ -49,7 +49,8 @@ public class MainAcad extends DriverConfiguration {
         homePage.chooseCourse();
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
         portfolioCoursesPage.clickOnCourses(7658);
-        Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div > p:nth-child(2)")).isDisplayed());
+        String expected = "";
+        Assert.assertEquals(portfolioCoursesPage.getQACourseText(), expected);
     }
 
 
