@@ -18,3 +18,5 @@ public class LoginPage {
         driver.findElement(By.cssSelector(forgotPassword)).click();
     }
 }
+
+
