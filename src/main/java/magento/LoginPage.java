@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
  */
 public class LoginPage {
     final String forgotPassword = ".f-left";
-
     private final WebDriver driver;
 
     public LoginPage(WebDriver driver) {
