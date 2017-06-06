@@ -25,5 +25,5 @@ public class HomePage {
     }
 
     public String getTeachText() {
-        return driver.findElement(By.cssSelector("#forWho > div.container > div > div:nth-child(1) > p")).getText();
+        return driver.findElement(By.cssSelector(getTeachText)).getText();
 }
