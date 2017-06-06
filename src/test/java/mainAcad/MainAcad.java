@@ -2,7 +2,6 @@ package mainAcad;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.openqa.selenium.Dimension;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import preparation.DriverConfiguration;
@@ -24,6 +23,7 @@ public class MainAcad extends DriverConfiguration {
     public void frontEnd() throws InterruptedException {
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         driver.findElement(By.cssSelector("#post-9018")).click();
+        Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew")).isDisplayed());
 
 
     }
