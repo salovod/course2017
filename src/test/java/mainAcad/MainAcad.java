@@ -47,8 +47,11 @@ public class MainAcad extends DriverConfiguration {
 
     @Test
     public void Python() throws InterruptedException {
+        String expectedText = "Знакомство с языком программирования Python областями его использования.";
         driver.findElement(By.cssSelector("#menu-item-10452")).click();
         driver.findElement(By.cssSelector("#post-9840")).click();
+        String actualText = driver.findElement(By.cssSelector("body > div.bg-overlay > div > div.content > div > div > div.content-column-content > div.ompf-portfolio-single.ompf-format-image.ompf-ratio-full.ompf-media-position-left > div.ompf-portfolio-single-description > div > div.omsc-full-width-section > div > div > div > div > div:nth-child(29) > ul:nth-child(1) > li")).getText();
+        assertEquals(actualText, expectedText);
 
     }
 
@@ -70,7 +73,7 @@ public class MainAcad extends DriverConfiguration {
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
         portfolioCoursesPage.clickOnCourses(9450);
         String expectedText = "Колеблешься, ту ли специальность выбрал? Уверен в правильности выбора, но хочешь усилить свои позиции техническими знаниями?\nПредлагаем старт в программировании – с нуля, без отрыва от занятий, без лишней траты времени, без ненужной академичности.";
-        String actualText = driver.findElement(By.cssSelector("#forWho > div.container > div > div:nth-child(1) > p")).getText();
+        String actualText = portfolioCoursesPage.getTeachText();
         assertEquals(actualText, expectedText);
 
 
