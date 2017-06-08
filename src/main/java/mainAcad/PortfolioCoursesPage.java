@@ -13,6 +13,7 @@ public class PortfolioCoursesPage {
     final String fePeriodHours = "#shortReiew > div > div > div:nth-child(2) > div >p.sub";
     final String feSum = "#shortReiew > div > div > div:nth-child(3) > div >p.sub";
     final String fePosition = "#shortReiew > div > div > div:nth-child(4) > div >p.sub";
+    final String feDisplay = "#shortReiew";
 
     private final WebDriver driver;
 
@@ -20,10 +21,13 @@ public class PortfolioCoursesPage {
         this.driver = driver;
     }
 
+    public frontEndDisplay() {
+        driver.findElement(By.cssSelector(feDisplay)).isDisplayed();
+    }
+
     public void clickOnCourses(int courseNumber) {
         driver.findElement(By.cssSelector(course + courseNumber)).click();
     }
-
 
     public String getTeachText() {
         return driver.findElement(By.cssSelector(getTeachText)).getText();
@@ -34,19 +38,19 @@ public class PortfolioCoursesPage {
     }
 
     public String frontEndPeriod() {
-        driver.findElement(By.cssSelector(fePeriod)).getText();
+        return driver.findElement(By.cssSelector(fePeriod)).getText();
     }
 
     public String frontEndPeriodHours() {
-        driver.findElement(By.cssSelector(fePeriodHours)).getText();
+        return driver.findElement(By.cssSelector(fePeriodHours)).getText();
     }
 
     public String frontEndSum() {
-        driver.findElement(By.cssSelector(feSum)).getText()
+        return driver.findElement(By.cssSelector(feSum)).getText();
     }
 
     public String frontEndPosition() {
-        driver.findElement(By.cssSelector(fePosition)).getText();
+        return driver.findElement(By.cssSelector(fePosition)).getText();
     }
 
 }

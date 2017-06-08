@@ -27,7 +27,7 @@ public class MainAcad extends DriverConfiguration {
         homePage.chooseCourse();
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
         portfolioCoursesPage.clickOnCourses(9018);
-        Assert.assertTrue(driver.findElement(By.cssSelector("#shortReiew")).isDisplayed());
+        Assert.assertTrue(portfolioCoursesPage.frontEndDisplay());
         Assert.assertEquals("5 месяцев", portfolioCoursesPage.frontEndPeriod());
         Assert.assertEquals("144 часа", portfolioCoursesPage.frontEndPeriodHours());
         Assert.assertEquals("20 500 грн", portfolioCoursesPage.frontEndSum());
