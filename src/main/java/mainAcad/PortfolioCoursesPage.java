@@ -15,6 +15,9 @@ public class PortfolioCoursesPage {
     final String fePosition = "#shortReiew > div > div > div:nth-child(4) > div >p.sub";
     final String feDisplay = "#shortReiew";
     final String phpTitleText = ".page-title";
+    final String javaBasicsText = "#modulesAccordionQA > div.container > div > div:nth-child(1) > h3";
+    final String javaSEText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
+    final String feJSText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
 
     private final WebDriver driver;
 
@@ -56,6 +59,18 @@ public class PortfolioCoursesPage {
 
     public String phpTitle() {
         return driver.findElement(By.cssSelector(phpTitleText)).getText();
+    }
+
+    public String javaBasics() {
+        return driver.findElement(By.cssSelector(javaBasicsText)).getText();
+    }
+
+    public String javaSE() {
+        return driver.findElement(By.cssSelector(javaSEText)).getText();
+    }
+
+    public String frontEndJS() {
+        return driver.findElement(By.cssSelector(feJSText)).getText();
     }
 
 }

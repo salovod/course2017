@@ -77,4 +77,32 @@ public class MainAcad extends DriverConfiguration {
 
 
     }
+
+    @Test
+    public void javaBasics() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(9012);
+        Assert.assertEquals("Часть 1. Java Basics", portfolioCoursesPage.javaBasics());
+    }
+
+    @Test
+    public void javaSE() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(9015);
+        Assert.assertEquals("Часть 2. Java OOP & SE", portfolioCoursesPage.javaSE());
+    }
+
+    @Test
+    public void frontEndJS() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(9024);
+        Assert.assertTrue(portfolioCoursesPage.frontEndDisplay());
+        Assert.assertEquals("Часть 2. JavaScript", portfolioCoursesPage.frontEndJS());
+    }
 }
