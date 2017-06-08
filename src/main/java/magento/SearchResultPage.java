@@ -23,4 +23,5 @@ public class SearchResultPage {
     public String searchInvalidMsg() {
         return driver.findElement(By.cssSelector(noSearchResult)).getText();
     }
+
 }
