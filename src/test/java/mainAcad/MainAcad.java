@@ -1,6 +1,5 @@
 package mainAcad;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -46,12 +45,12 @@ public class MainAcad extends DriverConfiguration {
 
     @Test
     public void Python() throws InterruptedException {
-        String expectedText = "Знакомство с языком программирования Python областями его использования.";
-        driver.findElement(By.cssSelector("#menu-item-10452")).click();
-        driver.findElement(By.cssSelector("#post-9840")).click();
-        String actualText = driver.findElement(By.cssSelector("body > div.bg-overlay > div > div.content > div > div > div.content-column-content > div.ompf-portfolio-single.ompf-format-image.ompf-ratio-full.ompf-media-position-left > div.ompf-portfolio-single-description > div > div.omsc-full-width-section > div > div > div > div > div:nth-child(29) > ul:nth-child(1) > li")).getText();
-        assertEquals(actualText, expectedText);
-
+        String expectedText = "Программирование на Python";
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(9840);
+        Assert.assertEquals(portfolioCoursesPage.getPythonText(), expectedText);
     }
 
     @Test
@@ -74,8 +73,17 @@ public class MainAcad extends DriverConfiguration {
         String expectedText = "Колеблешься, ту ли специальность выбрал? Уверен в правильности выбора, но хочешь усилить свои позиции техническими знаниями?\nПредлагаем старт в программировании – с нуля, без отрыва от занятий, без лишней траты времени, без ненужной академичности.";
         String actualText = portfolioCoursesPage.getTeachText();
         assertEquals(actualText, expectedText);
+    }
 
-
+    @Test
+    public void Android() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(10002);
+        String expectedText = "60 академических часов";
+        String actualText = portfolioCoursesPage.courseDurationAndroid();
+        assertEquals(actualText, expectedText);
     }
 
     @Test

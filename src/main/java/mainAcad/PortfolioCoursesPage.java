@@ -14,11 +14,13 @@ public class PortfolioCoursesPage {
     final String feSum = "#shortReiew > div > div > div:nth-child(3) > div >p.sub";
     final String fePosition = "#shortReiew > div > div > div:nth-child(4) > div >p.sub";
     final String feDisplay = "#shortReiew";
+    final String getPythonText = ".page-title";
     final String phpTitleText = ".page-title";
     final String javaBasicsText = "#modulesAccordionQA > div.container > div > div:nth-child(1) > h3";
     final String javaSEText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
     final String feJSText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
 
+    final String courseDurationAndroid = "/html/body/div[3]/div/div[2]/div/div/div[1]/div[3]/div[2]/div/div[20]/p[1]/text()";
     private final WebDriver driver;
 
     public PortfolioCoursesPage(WebDriver driver) {
@@ -41,6 +43,11 @@ public class PortfolioCoursesPage {
         return driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div > p:nth-child(2)")).getText();
     }
 
+    public String getPythonText() {
+        return driver.findElement(By.cssSelector(getPythonText)).getText();
+    }
+
+
     public String frontEndPeriod() {
         return driver.findElement(By.cssSelector(fePeriod)).getText();
     }
@@ -55,6 +62,10 @@ public class PortfolioCoursesPage {
 
     public String frontEndPosition() {
         return driver.findElement(By.cssSelector(fePosition)).getText();
+    }
+
+    public String courseDurationAndroid() {
+        return driver.findElement(By.xpath(courseDurationAndroid)).getText();
     }
 
     public String phpTitle() {
