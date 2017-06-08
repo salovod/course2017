@@ -14,6 +14,7 @@ public class PortfolioCoursesPage {
     final String feSum = "#shortReiew > div > div > div:nth-child(3) > div >p.sub";
     final String fePosition = "#shortReiew > div > div > div:nth-child(4) > div >p.sub";
     final String feDisplay = "#shortReiew";
+    final String getPythonText = ".page-title"
     final String phpTitleText = ".page-title";
 
     private final WebDriver driver;

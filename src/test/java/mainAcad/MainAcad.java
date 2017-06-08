@@ -1,6 +1,5 @@
 package mainAcad;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -46,7 +45,7 @@ public class MainAcad extends DriverConfiguration {
 
     @Test
     public void Python() throws InterruptedException {
-        String expectedText = "Универсальность";
+        String expectedText = "Программирование на Python";
         HomePage homePage = new HomePage(driver);
         homePage.chooseCourse();
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
