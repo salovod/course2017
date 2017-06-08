@@ -14,6 +14,7 @@ public class PortfolioCoursesPage {
     final String feSum = "#shortReiew > div > div > div:nth-child(3) > div >p.sub";
     final String fePosition = "#shortReiew > div > div > div:nth-child(4) > div >p.sub";
     final String feDisplay = "#shortReiew";
+    final String phpTitleText = ".page-title";
 
     private final WebDriver driver;
 
@@ -51,6 +52,10 @@ public class PortfolioCoursesPage {
 
     public String frontEndPosition() {
         return driver.findElement(By.cssSelector(fePosition)).getText();
+    }
+
+    public String phpTitle() {
+        return driver.findElement(By.cssSelector(phpTitleText)).getText();
     }
 
 }

@@ -39,9 +39,9 @@ public class MainAcad extends DriverConfiguration {
     public void php() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
         homePage.chooseCourse();
-        driver.findElement(By.cssSelector("#menu-item-10452")).click();
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
         portfolioCoursesPage.clickOnCourses(9856);
+        Assert.assertEquals("Программирование на PHP", portfolioCoursesPage.phpTitle());
     }
 
     @Test
