@@ -73,7 +73,5 @@ public class MainAcad extends DriverConfiguration {
         String expectedText = "Колеблешься, ту ли специальность выбрал? Уверен в правильности выбора, но хочешь усилить свои позиции техническими знаниями?\nПредлагаем старт в программировании – с нуля, без отрыва от занятий, без лишней траты времени, без ненужной академичности.";
         String actualText = portfolioCoursesPage.getTeachText();
         assertEquals(actualText, expectedText);
-
-
     }
 }
