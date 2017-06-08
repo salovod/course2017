@@ -63,6 +63,16 @@ public class MainAcad extends DriverConfiguration {
         Assert.assertEquals(portfolioCoursesPage.getQACourseText(), expected);
     }
 
+    @Test
+    public void C() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(9007);
+        String expected = "Длительность";
+        Assert.assertEquals(portfolioCoursesPage.getCText(), expected);
+    }
+
 
     @Test
     public void basic() throws InterruptedException {

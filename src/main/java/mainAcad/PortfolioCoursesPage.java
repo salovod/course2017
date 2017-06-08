@@ -16,6 +16,7 @@ public class PortfolioCoursesPage {
     final String feDisplay = "#shortReiew";
     final String getPythonText = ".page-title";
     final String phpTitleText = ".page-title";
+    final String getCText = "//*[@id=\"shortReiew\"]/div/div/div[1]/div/p[1]";
     final String javaBasicsText = "#modulesAccordionQA > div.container > div > div:nth-child(1) > h3";
     final String javaSEText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
     final String feJSText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
@@ -34,6 +35,7 @@ public class PortfolioCoursesPage {
     public void clickOnCourses(int courseNumber) {
         driver.findElement(By.cssSelector(course + courseNumber)).click();
     }
+
 
     public String getTeachText() {
         return driver.findElement(By.cssSelector(getTeachText)).getText();
@@ -70,6 +72,10 @@ public class PortfolioCoursesPage {
 
     public String phpTitle() {
         return driver.findElement(By.cssSelector(phpTitleText)).getText();
+    }
+
+    public String getCText() {
+        return driver.findElement(By.xpath(getCText)).getText();
     }
 
     public String javaBasics() {
