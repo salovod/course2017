@@ -61,7 +61,7 @@ public class MainAcad extends DriverConfiguration {
         homePage.chooseCourse();
         PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
         portfolioCoursesPage.clickOnCourses(7658);
-        String expected = "";
+        String expected = "Длительность";
         Assert.assertEquals(portfolioCoursesPage.getQACourseText(), expected);
     }
 
