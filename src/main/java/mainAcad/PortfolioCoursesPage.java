@@ -21,7 +21,7 @@ public class PortfolioCoursesPage {
     final String javaSEText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
     final String feJSText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
 
-    final String courseDurationAndroid = "/html/body/div[3]/div/div[2]/div/div/div[1]/div[3]/div[2]/div/div[20]/p[1]/text()";
+    final String courseDurationAndroid = "";
     private final WebDriver driver;
 
     public PortfolioCoursesPage(WebDriver driver) {
