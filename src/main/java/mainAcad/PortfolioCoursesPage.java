@@ -21,8 +21,8 @@ public class PortfolioCoursesPage {
         this.driver = driver;
     }
 
-    public frontEndDisplay() {
-        driver.findElement(By.cssSelector(feDisplay)).isDisplayed();
+    public boolean frontEndDisplay() {
+        return driver.findElement(By.cssSelector(feDisplay)).isDisplayed();
     }
 
     public void clickOnCourses(int courseNumber) {
