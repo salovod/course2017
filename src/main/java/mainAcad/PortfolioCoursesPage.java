@@ -29,6 +29,7 @@ public class PortfolioCoursesPage {
         driver.findElement(By.cssSelector(course + courseNumber)).click();
     }
 
+
     public String getTeachText() {
         return driver.findElement(By.cssSelector(getTeachText)).getText();
     }
@@ -36,21 +37,9 @@ public class PortfolioCoursesPage {
     public String getQACourseText() {
         return driver.findElement(By.cssSelector("#shortReiew > div > div > div:nth-child(1) > div > p:nth-child(2)")).getText();
     }
+    public String getPythonText (){
+         return driver.findElement(By.cssSelector(getPythonText)).getText();
+}
 
-    public String frontEndPeriod() {
-        return driver.findElement(By.cssSelector(fePeriod)).getText();
-    }
-
-    public String frontEndPeriodHours() {
-        return driver.findElement(By.cssSelector(fePeriodHours)).getText();
-    }
-
-    public String frontEndSum() {
-        return driver.findElement(By.cssSelector(feSum)).getText();
-    }
-
-    public String frontEndPosition() {
-        return driver.findElement(By.cssSelector(fePosition)).getText();
-    }
 
 }
