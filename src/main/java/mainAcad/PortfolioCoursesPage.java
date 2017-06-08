@@ -61,7 +61,7 @@ public class PortfolioCoursesPage {
         return driver.findElement(By.cssSelector(fePosition)).getText();
     }
 
-    public String CourseDurationAndroid() {
+    public String courseDurationAndroid() {
         return driver.findElement(By.xpath(courseDurationAndroid)).getText();
     }
 
