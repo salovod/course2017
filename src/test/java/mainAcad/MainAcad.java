@@ -74,4 +74,15 @@ public class MainAcad extends DriverConfiguration {
         String actualText = portfolioCoursesPage.getTeachText();
         assertEquals(actualText, expectedText);
     }
+
+    @Test
+    public void Android() throws InterruptedException {
+        HomePage homePage = new HomePage(driver);
+        homePage.chooseCourse();
+        PortfolioCoursesPage portfolioCoursesPage = new PortfolioCoursesPage(driver);
+        portfolioCoursesPage.clickOnCourses(10002);
+        String expectedText = "60 академических часов";
+        String actualText = portfolioCoursesPage.courseDurationAndroid();
+        assertEquals(actualText, expectedText);
+    }
 }

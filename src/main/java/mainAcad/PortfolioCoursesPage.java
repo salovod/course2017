@@ -17,6 +17,7 @@ public class PortfolioCoursesPage {
     final String getPythonText = ".page-title";
     final String phpTitleText = ".page-title";
 
+    final String courseDurationAndroid = "/html/body/div[3]/div/div[2]/div/div/div[1]/div[3]/div[2]/div/div[20]/p[1]/text()";
     private final WebDriver driver;
 
     public PortfolioCoursesPage(WebDriver driver) {
@@ -30,7 +31,6 @@ public class PortfolioCoursesPage {
     public void clickOnCourses(int courseNumber) {
         driver.findElement(By.cssSelector(course + courseNumber)).click();
     }
-
 
     public String getTeachText() {
         return driver.findElement(By.cssSelector(getTeachText)).getText();
@@ -61,6 +61,9 @@ public class PortfolioCoursesPage {
         return driver.findElement(By.cssSelector(fePosition)).getText();
     }
 
+    public String CourseDurationAndroid() {
+        return driver.findElement(By.xpath(courseDurationAndroid)).getText();
+    }
 
     public String phpTitle() {
         return driver.findElement(By.cssSelector(phpTitleText)).getText();
