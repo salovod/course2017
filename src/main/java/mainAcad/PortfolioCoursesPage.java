@@ -21,7 +21,7 @@ public class PortfolioCoursesPage {
     final String javaSEText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
     final String feJSText = "#modulesAccordionQA > div.container > div > div:nth-child(2) > h3";
 
-    final String courseDurationAndroid = "";
+    final String courseDurationAndroid = "/html/body/div[3]/div/div[2]/div/div/div[1]/div[3]/div[2]/div/div[20]/p[1]";
     private final WebDriver driver;
 
     public PortfolioCoursesPage(WebDriver driver) {
@@ -67,7 +67,7 @@ public class PortfolioCoursesPage {
     }
 
     public String courseDurationAndroid() {
-        return driver.findElement(By.xpath(courseDurationAndroid)).getText();
+        return driver.findElement(By.xpath(courseDurationAndroid)).getAttribute("data");
     }
 
     public String phpTitle() {
